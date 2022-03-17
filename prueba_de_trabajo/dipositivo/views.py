@@ -63,6 +63,28 @@ class DipositivoDetailView(RetrieveAPIView):
 #####################################################################################################
 # TICKETS...
 #####################################################################################################
+
+class TicketsDeUnDispositivoListApiView(ListAPIView):
+
+    serializer_class=TicketSerializer
+
+    def get_queryset(self):
+        '''
+        Nos retornar la lista de resultados particulares que
+        cumplan con el filtro
+        '''
+
+        idDipositivo=self.kwargs['idDipositivo']
+        
+        return ticket.objects.filter(
+            id_dispositivo=idDipositivo
+        )
+
+
+
+
+
+
 class TicketsListApiView(ListAPIView):
 
     serializer_class=TicketSerializer

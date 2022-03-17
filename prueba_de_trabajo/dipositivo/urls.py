@@ -5,6 +5,9 @@ from . import views
 app_name="dispositivos_app"
 
 urlpatterns=[
+    # Buscando por filtro la lista de tickets de un dispositivo en especifico
+    path('api/ticketsDe/<idDipositivo>/',views.TicketsDeUnDispositivoListApiView.as_view(),name="ticketsDeDispositivo_list"),
+
     # CRUD  dispositivos...
     path('api/dispositivos/list/',views.DispositivosListApiView.as_view(),name="dipositivos_list"),
     path('api/dispositivos/create/',views.DispositivoCreateView.as_view(),name="dipositivos_create"),
